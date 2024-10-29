@@ -110,7 +110,7 @@
    });
 ```
 
-#### 5. Remove from a polygonal mesh all vertices whose associated value is superior to a limit 
+#### 5. Remove from a polygonal mesh all vertices whose associated value is superior to a limit
 
 ```Java
    // The polygons as arrays of indices to vertices: 

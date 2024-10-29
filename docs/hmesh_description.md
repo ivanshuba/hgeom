@@ -1,6 +1,7 @@
 ## Description of [HMesh](../src/hgeom/hmesh/elements/HMesh.java)
 
-The half-edge data structure modelized by [HMesh](../src/hgeom/hmesh/elements/HMesh.java) is composed of a collection of faces, a collection of half-edges and a collection of vertices. 
+The half-edge data structure modelized by [HMesh](../src/hgeom/hmesh/elements/HMesh.java) is composed of a collection of
+faces, a collection of half-edges and a collection of vertices.
 
 A face is modelized by the Java interface [HFace](../src/hgeom/hmesh/elements/HFace.java)
 
@@ -21,13 +22,16 @@ Streams on each collection are provided by [HMesh](../src/hgeom/hmesh/elements/H
 
 ### HFace
 
-A [HFace](../src/hgeom/hmesh/elements/HFace.java) consists of a cycle of [HEdge](../src/hgeom/hmesh/elements/HEdge.java) forming a polygon boundary. Each [HEdge](../src/hgeom/hmesh/elements/HEdge.java) connects two [HVertex](../src/hgeom/hmesh/elements/HVertex.java)
+A [HFace](../src/hgeom/hmesh/elements/HFace.java) consists of a cycle of [HEdge](../src/hgeom/hmesh/elements/HEdge.java)
+forming a polygon boundary. Each [HEdge](../src/hgeom/hmesh/elements/HEdge.java) connects
+two [HVertex](../src/hgeom/hmesh/elements/HVertex.java)
 
 <p align="center">
 	<img src="face_description.png">
 </p>
 
-[HFace](../src/hgeom/hmesh/elements/HFace.java) provides getters on its [HEdge](../src/hgeom/hmesh/elements/HEdge.java) and on its [HVertex](../src/hgeom/hmesh/elements/HVertex.java):
+[HFace](../src/hgeom/hmesh/elements/HFace.java) provides getters on its [HEdge](../src/hgeom/hmesh/elements/HEdge.java)
+and on its [HVertex](../src/hgeom/hmesh/elements/HVertex.java):
 
 ```Java
    HFace face = ...
@@ -38,7 +42,8 @@ A [HFace](../src/hgeom/hmesh/elements/HFace.java) consists of a cycle of [HEdge]
    // Get the sequence of vertices on the face / polygon's boundary
    Sequence<HVertice> vertices = face.vertices();
 ```
-[HFace](../src/hgeom/hmesh/elements/HFace.java) also provides a getter on its adjacent neighbors: 
+
+[HFace](../src/hgeom/hmesh/elements/HFace.java) also provides a getter on its adjacent neighbors:
 
 ```Java
    HFace face = ...
@@ -49,7 +54,9 @@ A [HFace](../src/hgeom/hmesh/elements/HFace.java) consists of a cycle of [HEdge]
 
 ### HEdge
 
-An [HEdge](../src/hgeom/hmesh/elements/HEdge.java) modelizes an oriented link between 2 [HVertex](../src/hgeom/hmesh/elements/HVertex.java). It is an element of a cycle forming the boundary of a polygon. It always has a twin / opposite half-edge
+An [HEdge](../src/hgeom/hmesh/elements/HEdge.java) modelizes an oriented link between
+2 [HVertex](../src/hgeom/hmesh/elements/HVertex.java). It is an element of a cycle forming the boundary of a polygon. It
+always has a twin / opposite half-edge
 
 Various getters are provided by [HEdge](../src/hgeom/hmesh/elements/HEdge.java):
 
@@ -83,9 +90,13 @@ Various getters are provided by [HEdge](../src/hgeom/hmesh/elements/HEdge.java):
    // Get all edges starting from the edge's tail
    Sequence<HEdge> incomingEdges = edge.incomingEdges()
 ```
+
 ### HVertex
 
-An [HVertex](../src/hgeom/hmesh/elements/HVertex.java) modelizes a vertex. A [HVertex](../src/hgeom/hmesh/elements/HVertex.java) is both the tail of several [HEdge](../src/hgeom/hmesh/elements/HEdge.java) and the head of several others [HEdge](../src/hgeom/hmesh/elements/HEdge.java)
+An [HVertex](../src/hgeom/hmesh/elements/HVertex.java) modelizes a vertex.
+A [HVertex](../src/hgeom/hmesh/elements/HVertex.java) is both the tail of
+several [HEdge](../src/hgeom/hmesh/elements/HEdge.java) and the head of several
+others [HEdge](../src/hgeom/hmesh/elements/HEdge.java)
 
 ```Java
    HVertex vertex = ...
@@ -105,7 +116,9 @@ An [HVertex](../src/hgeom/hmesh/elements/HVertex.java) modelizes a vertex. A [HV
 
 ### Sequence
 
-Some of the getters of HFace, HEdge and HVertex are returning a [Sequence](../src/hgeom/hmesh/sequence/Sequence.java). A [Sequence](../src/hgeom/hmesh/sequence/Sequence.java) is a kind of simplified stream providing several basic streaming operations:
+Some of the getters of HFace, HEdge and HVertex are returning a [Sequence](../src/hgeom/hmesh/sequence/Sequence.java).
+A [Sequence](../src/hgeom/hmesh/sequence/Sequence.java) is a kind of simplified stream providing several basic streaming
+operations:
 
 ```Java
    HVertex vertex = ...
@@ -128,7 +141,7 @@ Some of the getters of HFace, HEdge and HVertex are returning a [Sequence](../sr
 
 Several topological operations are provided by [HMesh](../src/hgeom/hmesh/elements/HMesh.java):
 
- - **Splitting a face into two parts**
+- **Splitting a face into two parts**
 
 ```Java
    HMesh mesh = ...
@@ -140,7 +153,7 @@ Several topological operations are provided by [HMesh](../src/hgeom/hmesh/elemen
    Optional<HFace> newFace = mesh.splitFace(face, vertex1, vertex2);
 ```
 
- - **Merging two faces**
+- **Merging two faces**
 
 ```Java
    HMesh mesh = ...
@@ -151,7 +164,7 @@ Several topological operations are provided by [HMesh](../src/hgeom/hmesh/elemen
    boolean success = mesh.mergeFaces(face1, face2);
 ```
 
- - **Splitting an edge by inserting a new vertex**
+- **Splitting an edge by inserting a new vertex**
 
 ```Java
    HMesh mesh = ...
@@ -161,7 +174,7 @@ Several topological operations are provided by [HMesh](../src/hgeom/hmesh/elemen
    HVertex vertex = mesh.splitEdge(edge);
 ```
 
- - **Collapsing an edge**
+- **Collapsing an edge**
 
 ```Java
    HMesh mesh = ...
@@ -171,7 +184,7 @@ Several topological operations are provided by [HMesh](../src/hgeom/hmesh/elemen
    boolean success = mesh.collapseEdge(edge);
 ```
 
- - **Removing a vertex**
+- **Removing a vertex**
 
 ```Java
    HMesh mesh = ...
@@ -183,7 +196,8 @@ Several topological operations are provided by [HMesh](../src/hgeom/hmesh/elemen
 
 ### Data association with a [HMesh](../src/hgeom/hmesh/elements/HMesh.java)
 
-Faces, half-edges and vertices of a [HMesh](../src/hgeom/hmesh/elements/HMesh.java) can be associated with data. HMesh provides several methods to do that
+Faces, half-edges and vertices of a [HMesh](../src/hgeom/hmesh/elements/HMesh.java) can be associated with data. HMesh
+provides several methods to do that
 
 For instance, to associate a double value to each of the vertices of a [HMesh](../src/hgeom/hmesh/elements/HMesh.java):
 
@@ -221,13 +235,26 @@ Or to associate Java objects to the collection of faces:
    HData<HFace, Color> faceColors = mesh.createFaceData();
 ```
 
-These sets of data ([HData](../src/hgeom/hmesh/data/HData.java) for Java objects, [HDData](../src/hgeom/hmesh/data/HDData.java) for double values, [HIData](../src/hgeom/hmesh/data/HIData.java) for integer values, [HBData](../src/hgeom/hmesh/data/HBData.java) for boolean values) are synchronized with their associated mesh and are updated whenever a topological change occurs. For instance, if a vertex is removed from the mesh, all values attached to this vertex will  automatically be removed from all sets of data 
+These sets of data ([HData](../src/hgeom/hmesh/data/HData.java) for Java
+objects, [HDData](../src/hgeom/hmesh/data/HDData.java) for double values, [HIData](../src/hgeom/hmesh/data/HIData.java)
+for integer values, [HBData](../src/hgeom/hmesh/data/HBData.java) for boolean values) are synchronized with their
+associated mesh and are updated whenever a topological change occurs. For instance, if a vertex is removed from the
+mesh, all values attached to this vertex will automatically be removed from all sets of data
 
 ### Consistency of [HMesh](../src/hgeom/hmesh/elements/HMesh.java)
-An [HMesh](../src/hgeom/hmesh/elements/HMesh.java) is always consistent during its lifetime whatever operations performed on it: 
 
- - [HMesh](../src/hgeom/hmesh/elements/HMesh.java) never contains orphan [HVertex](../src/hgeom/hmesh/elements/HVertex.java) or [HEdge](../src/hgeom/hmesh/elements/HEdge.java): an [HEdge](../src/hgeom/hmesh/elements/HEdge.java) is always connecting 2 [HVertex](../src/hgeom/hmesh/elements/HVertex.java). A [HVertex](../src/hgeom/hmesh/elements/HVertex.java) is always the origin and the end of several [HEdge](../src/hgeom/hmesh/elements/HEdge.java) 
- - An [HEdge](../src/hgeom/hmesh/elements/HEdge.java) is always associated with an opposite/twin [HEdge](../src/hgeom/hmesh/elements/HEdge.java). The relationship is always symmetric : edge.opposite().opposite() == edge
- - An [HEdge](../src/hgeom/hmesh/elements/HEdge.java) is always part of one and only one polygonal cycle 
- - All [HEdge](../src/hgeom/hmesh/elements/HEdge.java) of a polygonal cycle are always distinct
- - No collapsed faces: each [HFace](../src/hgeom/hmesh/elements/HFace.java) always contains a cycle of at least 3 half-edges
+An [HMesh](../src/hgeom/hmesh/elements/HMesh.java) is always consistent during its lifetime whatever operations
+performed on it:
+
+- [HMesh](../src/hgeom/hmesh/elements/HMesh.java) never contains
+  orphan [HVertex](../src/hgeom/hmesh/elements/HVertex.java) or [HEdge](../src/hgeom/hmesh/elements/HEdge.java):
+  an [HEdge](../src/hgeom/hmesh/elements/HEdge.java) is always connecting
+  2 [HVertex](../src/hgeom/hmesh/elements/HVertex.java). A [HVertex](../src/hgeom/hmesh/elements/HVertex.java) is always
+  the origin and the end of several [HEdge](../src/hgeom/hmesh/elements/HEdge.java)
+- An [HEdge](../src/hgeom/hmesh/elements/HEdge.java) is always associated with an
+  opposite/twin [HEdge](../src/hgeom/hmesh/elements/HEdge.java). The relationship is always symmetric : edge.opposite()
+  .opposite() == edge
+- An [HEdge](../src/hgeom/hmesh/elements/HEdge.java) is always part of one and only one polygonal cycle
+- All [HEdge](../src/hgeom/hmesh/elements/HEdge.java) of a polygonal cycle are always distinct
+- No collapsed faces: each [HFace](../src/hgeom/hmesh/elements/HFace.java) always contains a cycle of at least 3
+  half-edges

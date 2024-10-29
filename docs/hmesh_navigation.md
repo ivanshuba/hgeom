@@ -2,7 +2,8 @@
 
 #### 1/ A [HMeshWalker](../src/hgeom/hmesh/core/HMeshWalker.java) can be used to move from element to element
 
-Here is an example showing how to implement the navigation of a  [HMeshWalker](../src/hgeom/hmesh/core/HMeshWalker.java) from a specified vertex to another vertex 
+Here is an example showing how to implement the navigation of a  [HMeshWalker](../src/hgeom/hmesh/core/HMeshWalker.java)
+from a specified vertex to another vertex
 
 ```Java
    HMesh2D mesh = ...
@@ -26,11 +27,13 @@ Here is an example showing how to implement the navigation of a  [HMeshWalker](.
    Stream<HVertex> pathToExtrema = walker.walk(vertex, maxOperator);
 ```
 
-A [HMeshWalker](../src/hgeom/hmesh/core/HMeshWalker.java) can also move from face to face or from edge to edge or from any element to any other element
+A [HMeshWalker](../src/hgeom/hmesh/core/HMeshWalker.java) can also move from face to face or from edge to edge or from
+any element to any other element
 
 #### 2/ A [HMeshTreeWalker](../src/hgeom/hmesh/core/HMeshTreeWalker.java) can also be used to move from element to element
 
-The walk with a [HMeshTreeWalker](../src/hgeom/hmesh/core/HMeshTreeWalker.java) is using a **tree-shaped path**. It starts from a mesh's element and circles around it through a **breadth-first** or a **depth-first** tree path 
+The walk with a [HMeshTreeWalker](../src/hgeom/hmesh/core/HMeshTreeWalker.java) is using a **tree-shaped path**. It
+starts from a mesh's element and circles around it through a **breadth-first** or a **depth-first** tree path
 
 ```Java
    HMesh2D mesh = ...
